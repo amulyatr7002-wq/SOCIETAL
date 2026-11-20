@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: civic-connect
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: CIVIC_SECRET_KEY
+        generateValue: true
+      - key: CIVIC_HTTPS
+        value: "true"

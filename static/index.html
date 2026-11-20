@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8fc">
+  <meta name="description" content="Civic Connect helps neighbours report local issues and coordinate practical responses.">
+  <title>Civic Connect — Better, together</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <header class="site-header">
+    <a class="brand" href="#" data-home aria-label="Civic Connect home">
+      <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 28 9.5v13L16 29 4 22.5v-13L16 3Z"/><path d="M10 16.4 14 20l8-8"/></svg></span>
+      <span>Civic<span class="brand-light">Connect</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#impact">Our impact</a>
+      <a href="#categories">Explore issues</a>
+    </nav>
+    <div class="header-actions">
+      <button class="button button-quiet" data-action="login">Log in</button>
+      <button class="button button-primary button-small" data-action="register">Join your community <span aria-hidden="true">↗</span></button>
+      <button class="icon-button mobile-menu" aria-label="Open menu" data-action="menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> A better way to care for our streets</div>
+        <h1>Building better<br><span>communities together.</span></h1>
+        <p class="hero-description">See something that needs attention? Let your neighbourhood speak up. We connect local reports with the people who can make a difference.</p>
+        <div class="hero-actions">
+          <button class="button button-primary button-large" data-action="report">Report an issue <span aria-hidden="true">↗</span></button>
+          <button class="button button-outline button-large" data-action="track">Track a complaint <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="hero-social-proof">
+          <div class="avatar-stack" aria-hidden="true"><span>AS</span><span>MK</span><span>JD</span><span>+</span></div>
+          <div><strong>Good things happen when we work together.</strong><small>Join neighbours making local change.</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-glow"></div>
+        <div class="hero-map-card">
+          <div class="map-topline"><span class="map-location"><span>⌖</span> Indiranagar, Bengaluru</span><span class="map-live"><span></span> LIVE REPORTS</span></div>
+          <div class="illustrated-map">
+            <div class="map-street street-one"></div><div class="map-street street-two"></div><div class="map-street street-three"></div>
+            <div class="map-block block-one"></div><div class="map-block block-two"></div><div class="map-block block-three"></div><div class="map-green"></div>
+            <div class="map-pin pin-road"><span>⌁</span></div><div class="map-pin pin-light"><span>✦</span></div><div class="map-pin pin-water"><span>≈</span></div>
+            <div class="map-popover"><span class="mini-status"></span><div><strong>Road repairs</strong><small>Team assigned · 8 min ago</small></div><span class="popover-arrow">↗</span></div>
+            <div class="map-radius"></div>
+          </div>
+          <div class="map-card-footer"><span><i class="legend-dot blue"></i> Road issue</span><span><i class="legend-dot green"></i> In progress</span><span class="map-footer-count"><strong>24</strong> nearby this week</span></div>
+        </div>
+        <div class="floating-note note-top"><span class="note-icon note-green">✓</span><span><strong>Issue resolved</strong><small>Lakeview Park · today</small></span></div>
+        <div class="floating-note note-bottom"><span class="note-icon note-blue">↗</span><span><strong>Your voice matters</strong><small>Updates at every step</small></span></div>
+        <div class="hero-sparkle sparkle-one">✳</div><div class="hero-sparkle sparkle-two">✳</div>
+      </div>
+    </section>
+
+    <section class="impact-strip" id="impact">
+      <div class="impact-intro"><span class="eyebrow">Small actions, real change</span><strong>Making our shared spaces<br>work better for everyone.</strong></div>
+      <div class="impact-stat"><strong>2,480<span>+</span></strong><small>Issues heard</small></div>
+      <div class="impact-stat"><strong>86<span>%</span></strong><small>Resolution rate</small></div>
+      <div class="impact-stat"><strong>32<span>h</span></strong><small>Average response</small></div>
+      <div class="impact-stat"><strong>18</strong><small>Neighbourhoods</small></div>
+    </section>
+
+    <section class="section how-section" id="how-it-works">
+      <div class="section-heading"><div><span class="eyebrow">Simple by design</span><h2>From “someone should”<br>to “something changed.”</h2></div><p>Better neighbourhoods start with noticing. Here’s how we turn a local concern into a shared solution.</p></div>
+      <div class="steps-grid">
+        <article class="step-card"><div class="step-number">01 <span>01 / 03</span></div><div class="step-icon icon-soft-blue">⌖</div><h3>Spot it. Share it.</h3><p>Tell us what’s happening, add a photo, and pin the place. It takes less than a minute.</p><span class="step-link">Make a report <b>↗</b></span></article>
+        <article class="step-card"><div class="step-number">02 <span>02 / 03</span></div><div class="step-icon icon-soft-yellow">✳</div><h3>Neighbours make it count.</h3><p>Similar reports help surface what needs attention first. Every voice adds context.</p><span class="step-link">See what’s nearby <b>↗</b></span></article>
+        <article class="step-card"><div class="step-number">03 <span>03 / 03</span></div><div class="step-icon icon-soft-green">↗</div><h3>Follow through, together.</h3><p>Local teams pick up the work. Track progress, get updates, and see the difference.</p><span class="step-link">Track your report <b>↗</b></span></article>
+      </div>
+    </section>
+
+    <section class="section category-section" id="categories">
+      <div class="section-heading category-heading"><div><span class="eyebrow">A little bit of everything</span><h2>What needs a hand<br>in your neighbourhood?</h2></div><button class="button button-outline" data-action="report">Report an issue <span>↗</span></button></div>
+      <div class="category-grid">
+        <button class="category-card" data-category="Roads"><span class="category-icon road-icon">⌁</span><strong>Roads & paths</strong><small>Potholes, pavements, crossings</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Water"><span class="category-icon water-icon">≈</span><strong>Water supply</strong><small>Leaks, shortages, water quality</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Streetlights"><span class="category-icon light-icon">✦</span><strong>Streetlights</strong><small>Dark streets, broken lights</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Waste"><span class="category-icon waste-icon">♧</span><strong>Waste & litter</strong><small>Overflowing bins, illegal dumping</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Drainage"><span class="category-icon drain-icon">⌇</span><strong>Drainage</strong><small>Blocked drains, local flooding</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Other"><span class="category-icon other-icon">✳</span><strong>Something else</strong><small>Other things worth fixing</small><span class="category-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <section class="community-banner"><div class="community-pattern" aria-hidden="true">✳　⌁　✳　⌁　✳</div><div><span class="eyebrow">Better starts right here</span><h2>Your neighbourhood.<br>Your voice. Your impact.</h2><p>One small report can get a whole community moving.</p></div><button class="button button-white button-large" data-action="register">Be part of it <span>↗</span></button></section>
+
+    <section class="app-shell hidden" id="app-shell">
+      <aside class="sidebar">
+        <a class="brand sidebar-brand" href="#" data-home><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 28 9.5v13L16 29 4 22.5v-13L16 3Z"/><path d="M10 16.4 14 20l8-8"/></svg></span><span>Civic<span class="brand-light">Connect</span></span></a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="side-nav" id="side-nav">
+          <button class="side-link active" data-view="overview"><span>⌂</span> Overview</button>
+          <button class="side-link" data-view="reports"><span>▤</span><span class="nav-report-label">My reports</span><b class="nav-count" id="nav-count">0</b></button>
+          <button class="side-link" data-view="map"><span>⌖</span> Neighbourhood map</button>
+          <button class="side-link admin-only hidden" data-view="analytics"><span>▥</span> Analytics</button>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-help"><div class="help-icon">?</div><strong>Need a hand?</strong><p>We're here to help make your report count.</p><button data-action="help">Visit help centre <span>↗</span></button></div>
+        <div class="profile-menu"><div class="profile-avatar" id="profile-avatar">CC</div><div class="profile-info"><strong id="profile-name">Community member</strong><small id="profile-role">Citizen</small></div><button class="icon-button logout-button" aria-label="Sign out" data-action="logout">↗</button></div>
+      </aside>
+      <div class="dashboard-main">
+        <header class="dashboard-header"><div class="breadcrumbs"><span>Workspace</span><b>/</b><strong id="view-title">Overview</strong></div><div class="dashboard-header-actions"><span class="neighbourhood-pill"><span>⌖</span> Bengaluru, IN</span><button class="icon-button notification-button" aria-label="Notifications" data-action="notifications">♧<i id="notification-dot"></i></button><button class="button button-primary button-small" data-action="report">＋ <span>New report</span></button></div></header>
+        <div class="dashboard-content">
+          <section class="dashboard-view" id="view-overview">
+            <div class="welcome-row"><div><span class="eyebrow" id="welcome-eyebrow">YOUR COMMUNITY, IN THE LOOP</span><h1 id="welcome-title">Good morning, neighbour <span>✳</span></h1><p id="welcome-description">Here's what's happening around your neighbourhood today.</p></div><div class="welcome-date" id="today-date"></div></div>
+            <div class="metric-grid" id="metric-grid"></div>
+            <div class="overview-grid">
+              <section class="panel activity-panel"><div class="panel-heading"><div><h2>Recent reports</h2><p>Issues that need your community’s attention</p></div><button class="text-button" data-view="reports">View all <span>→</span></button></div><div id="recent-reports" class="recent-list"></div></section>
+              <section class="panel neighbourhood-panel"><div class="panel-heading"><div><h2>Neighbourhood pulse</h2><p>Reports around your area</p></div><button class="icon-button" data-view="map" aria-label="Open map">↗</button></div><div class="pulse-map" id="mini-map"><div class="pulse-street pulse-street-a"></div><div class="pulse-street pulse-street-b"></div><div class="pulse-street pulse-street-c"></div><span class="pulse-pin pulse-pin-a">⌁</span><span class="pulse-pin pulse-pin-b">≈</span><span class="pulse-pin pulse-pin-c">✦</span><span class="pulse-map-label">Indiranagar</span></div><div class="pulse-footer"><span><i class="live-dot"></i><b id="pulse-count">0</b> open reports nearby</span><button class="text-button" data-view="map">Explore map →</button></div></section>
+            </div>
+            <div class="welcome-cta"><div class="cta-icon">✳</div><div><strong>Noticed something that could be better?</strong><span>It only takes a minute to let your community know.</span></div><button class="button button-primary button-small" data-action="report">Make a report <span>↗</span></button></div>
+          </section>
+          <section class="dashboard-view hidden" id="view-reports"><div class="page-heading"><div><span class="eyebrow" id="reports-eyebrow">YOUR NEIGHBOURHOOD</span><h1 id="reports-title">My reports</h1><p id="reports-description">Follow every update from report to resolution.</p></div><button class="button button-primary" data-action="report">＋ New report</button></div><div class="filter-row"><div class="filter-search">⌕ <input id="report-search" type="search" placeholder="Search reports"></div><select id="filter-status" aria-label="Filter by status"><option value="">All statuses</option><option>Submitted</option><option>Under Review</option><option>Assigned</option><option>In Progress</option><option>Resolved</option><option>Closed</option></select><select id="filter-category" aria-label="Filter by category"><option value="">All categories</option><option>Roads</option><option>Water</option><option>Streetlights</option><option>Waste</option><option>Drainage</option><option>Other</option></select></div><div class="reports-grid" id="reports-list"></div></section>
+          <section class="dashboard-view hidden" id="view-map"><div class="page-heading"><div><span class="eyebrow">LIVE COMMUNITY VIEW</span><h1>Neighbourhood map</h1><p>See what’s happening nearby. Select a category to focus the map.</p></div><div class="map-legend"><span><i class="legend-dot blue"></i> Road</span><span><i class="legend-dot green"></i> Water</span><span><i class="legend-dot orange"></i> Other</span></div></div><div class="map-filter-bar"><label>Show reports<select id="map-category-filter"><option value="">All categories</option><option>Roads</option><option>Water</option><option>Streetlights</option><option>Waste</option><option>Drainage</option><option>Other</option></select></label><span class="map-hotspot-note"><i class="hotspot-pulse"></i> Highlighted rings show nearby report clusters</span></div><div class="map-container" id="full-map" role="application" aria-label="Map of civic reports"></div></section>
+          <section class="dashboard-view hidden" id="view-analytics"><div class="page-heading"><div><span class="eyebrow">CITY OPERATIONS</span><h1>Community insights</h1><p>Understand where needs are growing and how teams are responding.</p></div><span class="last-updated">↻ Live from your reports</span></div><div class="metric-grid analytics-metrics" id="analytics-metrics"></div><div class="analytics-grid"><section class="panel chart-panel"><div class="panel-heading"><div><h2>Issues by category</h2><p>Where the community needs support</p></div></div><div class="chart-wrap"><canvas id="category-chart"></canvas></div></section><section class="panel chart-panel"><div class="panel-heading"><div><h2>Monthly reports</h2><p>Community activity over time</p></div></div><div class="chart-wrap"><canvas id="monthly-chart"></canvas></div></section><section class="panel chart-panel"><div class="panel-heading"><div><h2>Reports by area</h2><p>Local reporting activity</p></div></div><div class="chart-wrap"><canvas id="area-chart"></canvas></div></section><section class="panel chart-panel"><div class="panel-heading"><div><h2>Department response</h2><p>Assigned work and completed tasks</p></div></div><div id="department-list" class="department-list"></div></section></div></section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#" data-home><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 28 9.5v13L16 29 4 22.5v-13L16 3Z"/><path d="M10 16.4 14 20l8-8"/></svg></span><span>Civic<span class="brand-light">Connect</span></span></a><span>Local care, connected. © 2026 Civic Connect.</span><div><a href="#how-it-works">How it works</a><a href="#impact">Our impact</a></div></footer>
+
+  <dialog class="modal" id="auth-modal"><button class="modal-close" aria-label="Close dialog" data-action="close-modal">×</button><div class="modal-brand"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 28 9.5v13L16 29 4 22.5v-13L16 3Z"/><path d="M10 16.4 14 20l8-8"/></svg></span></div><span class="eyebrow">WELCOME TO YOUR COMMUNITY</span><h2 id="auth-title">Good things start here.</h2><p id="auth-subtitle">Sign in to be part of what happens next.</p><div class="auth-tabs"><button class="auth-tab active" data-auth-tab="login">Log in</button><button class="auth-tab" data-auth-tab="register">Create account</button></div><form id="auth-form"><label class="form-field register-field hidden">Your name<input name="name" autocomplete="name" minlength="2" maxlength="80"></label><label class="form-field">Email address<input name="email" type="email" autocomplete="email" required></label><label class="form-field">Password<input name="password" type="password" autocomplete="current-password" minlength="8" required></label><button class="button button-primary button-full" id="auth-submit" type="submit">Log in <span>→</span></button><p class="form-error" id="auth-error"></p></form><div class="demo-hint"><strong>Exploring the demo?</strong><span>Try admin@civicconnect.local · CivicAdmin24!</span></div></dialog>
+
+  <dialog class="modal report-modal" id="report-modal"><button class="modal-close" aria-label="Close dialog" data-action="close-modal">×</button><div class="report-modal-heading"><span class="eyebrow">A BETTER BLOCK STARTS HERE</span><h2>Tell us what needs attention.</h2><p>Give your community the details it needs to help.</p></div><form id="report-form"><div class="form-grid"><label class="form-field full-field">Issue title<input name="title" minlength="5" maxlength="120" placeholder="e.g. Pothole near the school entrance" required></label><label class="form-field">Issue category<select name="category" required><option value="">Choose a category</option><option>Roads</option><option>Water</option><option>Streetlights</option><option>Waste</option><option>Drainage</option><option>Other</option></select></label><label class="form-field">How urgent is it?<select name="severity"><option value="1">Low — minor inconvenience</option><option value="2">Some impact</option><option value="3" selected>Moderate — affects the area</option><option value="4">High — many people affected</option><option value="5">Urgent — immediate safety concern</option></select></label><label class="form-field full-field">What’s happening?<textarea name="description" minlength="15" maxlength="2000" rows="3" placeholder="Share what you noticed and who is affected..." required></textarea></label><label class="form-field full-field">Where is it?<input name="location_name" maxlength="160" placeholder="Street, landmark or neighbourhood"><small>Click the map to pin the exact location. Default map view is central Bengaluru.</small></label></div><div class="location-picker"><div id="pick-map" aria-label="Choose the issue location on map"></div><div class="location-status" id="location-status">Click on the map to drop a pin.</div></div><label class="upload-field"><span class="upload-icon">↑</span><span><strong>Add a photo <small>(optional)</small></strong><small>JPEG, PNG or WebP · up to 6 MB</small></span><input type="file" name="image" accept="image/jpeg,image/png,image/webp"><span class="upload-file-name" id="upload-file-name">Choose image</span></label><button class="button button-primary button-full report-submit" type="submit">Submit report <span>↗</span></button><p class="form-error" id="report-error"></p></form></dialog>
+
+  <dialog class="modal track-modal" id="track-modal"><button class="modal-close" aria-label="Close dialog" data-action="close-modal">×</button><div class="modal-brand"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 28 9.5v13L16 29 4 22.5v-13L16 3Z"/><path d="M10 16.4 14 20l8-8"/></svg></span></div><span class="eyebrow">YOUR UPDATE IS JUST A LOOK AWAY</span><h2>Track a report.</h2><p>Enter your complaint reference to see its latest status.</p><form id="track-form"><label class="form-field">Complaint reference<input name="reference" placeholder="CC-2605-12345" required></label><button class="button button-primary button-full">Find my report <span>→</span></button></form><div id="track-result"></div></dialog>
+
+  <dialog class="modal detail-modal" id="detail-modal"><button class="modal-close" aria-label="Close dialog" data-action="close-modal">×</button><div id="detail-content"></div></dialog>
+</body>
+</html>
